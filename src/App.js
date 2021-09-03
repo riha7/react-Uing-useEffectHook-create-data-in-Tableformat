@@ -14,7 +14,6 @@ export default function App() {
         let data = response.data;
         setcount(data);
       })
-      .catch(err => console.log(err));
   }, [increment]);
   console.log(increment);
   return (
