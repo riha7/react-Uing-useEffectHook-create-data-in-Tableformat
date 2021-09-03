@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import axios from 'axios';
 export default function App() {
+  const [increment, setincrement] = useState(0);
   const [count, setcount] = useState([]);
   //useEffect contain 2 parameters
   //1st parameter function
@@ -14,7 +15,8 @@ export default function App() {
         setcount(data);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [increment]);
+  console.log(increment);
   return (
     <div>
       <h1>Testing UseEffect Hook calling </h1>
@@ -42,6 +44,13 @@ export default function App() {
           </tbody>
         </table>
       </div>
+      <button
+        onClick={() => {
+          setincrement(increment + 1), console.log('updaed');
+        }}
+      >
+        {increment}:times
+      </button>
     </div>
   );
 }
